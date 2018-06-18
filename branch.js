@@ -1,6 +1,12 @@
 function Branch(begin, end) {
 	this.begin = begin;
 	this.end = end;
+	this.finished = false;
+
+	this.jitter = function() {
+		this.end.x += random(-1,1);
+		this.end.y += random(-1,1);
+	}
 
 	this.show = function() {
 		stroke(255);

@@ -11,8 +11,13 @@ function setup() {
 }
 
 function mousePressed() {
-  tree[1] = tree[0].branchA();
-  tree[2] = tree[0].branchB();
+  for (var i = tree.length - 1; i >= 0; i--) {
+    if (!tree[i].finished) { 
+      tree.push(tree[i].branchA());
+      tree.push(tree[i].branchB());
+    }
+    tree[i].finished = true;
+  }
 }
 
 function draw() {
@@ -27,6 +32,7 @@ function draw() {
 
   for (var i = 0; i < tree.length; i++) {
     tree[i].show(); 
+    tree[i].jitter(); 
   }
   
 }
@@ -35,4 +41,4 @@ function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
-// 14 minutes into video
+// 18 minutes into video
