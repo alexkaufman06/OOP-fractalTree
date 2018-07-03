@@ -15,7 +15,7 @@ function Branch(begin, end) {
 
 	this.branchA = function() {
 		var dir = p5.Vector.sub(this.end, this.begin);
-		dir.rotate(PI / 4);
+		dir.rotate(PI / random(3,7));
 		dir.mult(0.67);
 		var newEnd = p5.Vector.add(this.end, dir);
 		var b = new Branch(this.end, newEnd);
@@ -24,7 +24,7 @@ function Branch(begin, end) {
 
 	this.branchB = function() {
 		var dir = p5.Vector.sub(this.end, this.begin);
-		dir.rotate(-PI / 4);
+		dir.rotate(-PI / random(3,7));
 		dir.mult(0.67);
 		var newEnd = p5.Vector.add(this.end, dir);
 		var b = new Branch(this.end, newEnd);
