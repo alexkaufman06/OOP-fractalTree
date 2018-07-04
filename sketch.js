@@ -49,6 +49,9 @@ function draw() {
     fill(255,0,100);
     noStroke();
     ellipse(apples[i].x, apples[i].y, 8, 8);
+    if (apples[i].y >= window.innerHeight) {
+      apples.splice(apples.indexOf(apples[i]), 1);
+    }
   }
 
   if (count >= 7) {
